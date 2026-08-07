@@ -1,0 +1,17 @@
+{
+  "name": "dapigo-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "DAPIGO multi-vendor delivery platform — backend + customer/admin/partner/rider apps",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install && npm --prefix admin install && npm --prefix partner install && npm --prefix rider install && npm --prefix mobile install",
+    "seed": "npm --prefix backend run seed",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:admin": "npm --prefix admin run dev",
+    "dev:partner": "npm --prefix partner run dev",
+    "dev:rider": "npm --prefix rider run dev",
+    "dev:mobile": "npm --prefix mobile run start",
+    "dev": "bash ./start-all.sh"
+  }
+}

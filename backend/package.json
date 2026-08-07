@@ -1,0 +1,36 @@
+{
+  "name": "dapigo-backend",
+  "version": "2.0.0",
+  "description": "DAPIGO multi-vendor delivery platform API",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed/seed.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.5.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^9.0.3",
+    "paytmchecksum": "^1.5.1",
+    "razorpay": "^2.9.6",
+    "socket.io": "^4.8.3",
+    "stripe": "^22.3.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.2.0",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.10"
+  }
+}

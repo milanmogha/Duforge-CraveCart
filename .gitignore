@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# builds
+dist/
+build/
+
+# env & secrets — copy backend/.env.example to backend/.env
+.env
+.env.*
+!.env.example
+
+# runtime
+backend/uploads/
+*.log
+nohup.out
+
+# editors/os
+.DS_Store
+.idea/
+.vscode/
+
+# Built APKs — release artifacts, served from disk; keep them out of history
+deploy/public/apk/*.apk

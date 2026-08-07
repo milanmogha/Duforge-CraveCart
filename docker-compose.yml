@@ -1,0 +1,119 @@
+name: cravecart
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: dapigo-mongo
+    restart: unless-stopped
+    volumes:
+      - cravecart_mongo_data:/data/db
+    networks: [cravecart]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    image: ghcr.io/milanmogha/cravecart-backend:latest
+    build: ./backend
+    container_name: dapigo-api
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/dapigo_v2
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks: [cravecart]
+    ports:
+      - "127.0.0.1:8200:5000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('net').connect(5000,'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  frontend:
+    image: ghcr.io/milanmogha/cravecart-frontend:latest
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_BASE_PATH: ""
+    container_name: dapigo-frontend
+    restart: unless-stopped
+    networks: [cravecart]
+    ports:
+      - "127.0.0.1:8201:3000"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  admin:
+    image: ghcr.io/milanmogha/cravecart-admin:latest
+    build:
+      context: ./admin
+      args:
+        VITE_BASE_PATH: /
+    container_name: dapigo-admin
+    restart: unless-stopped
+    networks: [cravecart]
+    ports:
+      - "127.0.0.1:8202:5174"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  partner:
+    image: ghcr.io/milanmogha/cravecart-partner:latest
+    build:
+      context: ./partner
+      args:
+        VITE_BASE_PATH: /
+    container_name: dapigo-partner
+    restart: unless-stopped
+    networks: [cravecart]
+    ports:
+      - "127.0.0.1:8203:5175"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  rider:
+    image: ghcr.io/milanmogha/cravecart-rider:latest
+    build:
+      context: ./rider
+      args:
+        VITE_BASE_PATH: /
+    container_name: dapigo-rider
+    restart: unless-stopped
+    networks: [cravecart]
+    ports:
+      - "127.0.0.1:8204:5176"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  cravecart:
+    name: cravecart
+
+volumes:
+  cravecart_mongo_data:

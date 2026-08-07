@@ -1,0 +1,4 @@
+credentials/
+
+# Signing secrets — keystore passwords
+credentials.json

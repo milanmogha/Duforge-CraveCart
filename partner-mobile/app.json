@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "DapiGO Partner",
+    "slug": "dapigo-partner",
+    "version": "1.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#f7f7f7",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dapigo.partner"
+    },
+    "android": {
+      "package": "com.dapigo.partner",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#00b3a6"
+      },
+      "versionCode": 2
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "owner": "aakash8930",
+    "extra": {
+      "eas": {
+        "projectId": "2c0c3f85-5e33-4182-a6eb-6c0929cc1b1b"
+      }
+    }
+  }
+}

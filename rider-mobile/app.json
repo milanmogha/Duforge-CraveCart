@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "DapiGO Rider",
+    "slug": "dapigo-rider",
+    "version": "1.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#f7f7f7",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dapigo.rider",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "DapiGO Rider shares your live location with the customer while you are on an active delivery."
+      }
+    },
+    "android": {
+      "package": "com.dapigo.rider",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#00b3a6"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "versionCode": 2
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "DapiGO Rider shares your live location with the customer while you are on an active delivery."
+        }
+      ]
+    ],
+    "owner": "aakash8930",
+    "extra": {
+      "eas": {
+        "projectId": "72ac42ee-6c10-4191-9621-b13f0bbfcc80"
+      }
+    }
+  }
+}

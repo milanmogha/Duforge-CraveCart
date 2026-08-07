@@ -1,0 +1,27 @@
+{
+  "cli": {
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "preview": {
+      "distribution": "internal",
+      "credentialsSource": "local",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/dapigo"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "credentialsSource": "local",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/dapigo"
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  }
+}
