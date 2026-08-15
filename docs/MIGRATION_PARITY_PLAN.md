@@ -1,4 +1,4 @@
-# DapiGO v2 — Migration Parity Plan (v1 → v2)
+# CraveCart v2 — Migration Parity Plan (v1 → v2)
 
 > **Mission statement (owner, 2026-07-11):** v2 is a **stack migration** — PHP CodeIgniter 3 + Flutter → Node/Express + React + React Native (Expo) — **not a redesign of scope**. Target is feature-for-feature parity with v1 (`~/Projects/dapigo`). The rebuild-spec's `[NEW]` items (`_analysis/FEATURES_AND_FUNCTIONALITY.md`) are OUT of scope unless explicitly promoted.
 >
@@ -82,8 +82,8 @@ Deviations: POS cash sales are recorded (`settled`, `partnerEarning=total`) with
 ## Phase 6 — Partner & Rider mobile apps (React Native/Expo)
 
 **✅ DONE 2026-07-11.** v1 had Flutter apps for partner (orders/inventory) and rider (deliveries); ported as two Expo SDK 57 apps cloned from the `mobile/` skeleton (same api.js/ctx.jsx/components.jsx pattern, auth gated at the root since every screen needs login, 10s polling like the web consoles).
-- **`partner-mobile/`** (`com.dapigo.partner`): Dashboard (stats + 7-day sales bars + recent orders + KYC banner), Orders (tab filters, accept/reject with reason sheet, preparing→ready flow, self-pickup handover), Products (search + availability toggle + stock at a glance — full editing stays on the web console), Wallet (withdrawals + transactions), Store (open/closed switch saves instantly; profile/delivery-pricing/bank forms). Partner registration (storeName) + forgot-password included.
-- **`rider-mobile/`** (`com.dapigo.rider`): Dashboard (online/offline switch, today/week earnings, COD held), Deliveries (available/active/history, accept, picked_up→out_for_delivery→delivered flow, Leaflet TrackingMap in WebView, **real GPS push via expo-location** watchPositionAsync throttled ~8s while a delivery is active — replaces the console's navigator.geolocation — plus the "Simulate ride" demo), Wallet (withdrawals + COD cash-in-hand/deposits + transactions), Profile (vehicle/bank forms). Rider registration (vehicleType) + forgot-password included.
+- **`partner-mobile/`** (`com.cravecart.partner`): Dashboard (stats + 7-day sales bars + recent orders + KYC banner), Orders (tab filters, accept/reject with reason sheet, preparing→ready flow, self-pickup handover), Products (search + availability toggle + stock at a glance — full editing stays on the web console), Wallet (withdrawals + transactions), Store (open/closed switch saves instantly; profile/delivery-pricing/bank forms). Partner registration (storeName) + forgot-password included.
+- **`rider-mobile/`** (`com.cravecart.rider`): Dashboard (online/offline switch, today/week earnings, COD held), Deliveries (available/active/history, accept, picked_up→out_for_delivery→delivered flow, Leaflet TrackingMap in WebView, **real GPS push via expo-location** watchPositionAsync throttled ~8s while a delivery is active — replaces the console's navigator.geolocation — plus the "Simulate ride" demo), Wallet (withdrawals + COD cash-in-hand/deposits + transactions), Profile (vehicle/bank forms). Rider registration (vehicleType) + forgot-password included.
 - Remaining (note): FCM push registration needs the Phase 3 native-build step (google-services.json → EAS); apps not localized yet (same as customer app); no EAS projectIds yet — run `eas init` per app before store builds.
 
 ## Phase 7 — Platform ops leftovers

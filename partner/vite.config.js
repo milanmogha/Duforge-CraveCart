@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  // Path-based deployment: set VITE_BASE_PATH=/dapigo-partner at build time
+  // Path-based deployment: set VITE_BASE_PATH=/cravecart-partner at build time
   base: process.env.VITE_BASE_PATH || '/',
   plugins: [react(), tailwindcss()],
   server: {

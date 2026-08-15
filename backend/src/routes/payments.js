@@ -140,7 +140,7 @@ router.get(
     res.json({
       methods: [
         { id: 'cod', label: 'Cash on Delivery', enabled: true },
-        { id: 'wallet', label: 'DapiGO Wallet', enabled: true },
+        { id: 'wallet', label: 'CraveCart Wallet', enabled: true },
         {
           id: 'stripe', label: 'Card (Stripe)',
           enabled: cfg.stripe.enabled && !!cfg.stripe.secretKey,
@@ -220,7 +220,7 @@ router.post(
             price_data: {
               currency: cfg.currency.toLowerCase(),
               product_data: {
-                name: purpose === 'topup' ? 'DapiGO wallet top-up' : 'DapiGO order',
+                name: purpose === 'topup' ? 'CraveCart wallet top-up' : 'CraveCart order',
               },
               unit_amount: Math.round(amount * 100),
             },
@@ -314,7 +314,7 @@ router.post(
       keyId: cfg.razorpay.keyId,
       amount,
       currency: cfg.currency,
-      name: 'DapiGO',
+      name: 'CraveCart',
       prefill: { name: req.user.name, email: req.user.email, contact: req.user.phone || '' },
     });
   })
@@ -389,7 +389,7 @@ router.post(
         intent: 'CAPTURE',
         purchase_units: [{ custom_id: String(payment._id), amount: { currency_code: cfg.currency, value: amount.toFixed(2) } }],
         application_context: {
-          brand_name: 'DapiGO',
+          brand_name: 'CraveCart',
           user_action: 'PAY_NOW',
           return_url: `${origin}/payment/gateway-return?gateway=paypal`,
           cancel_url: `${origin}/payment/gateway-return?gateway=paypal&cancelled=1`,
@@ -550,7 +550,7 @@ router.post(
         currency: cfg.currency,
         redirect_url: `${origin}/payment/gateway-return?gateway=flutterwave&tx_ref=${payment.gatewayOrderId}`,
         customer: { email: req.user.email, name: req.user.name, phonenumber: req.user.phone || '' },
-        customizations: { title: 'DapiGO', description: purpose === 'topup' ? 'Wallet top-up' : 'Order payment' },
+        customizations: { title: 'CraveCart', description: purpose === 'topup' ? 'Wallet top-up' : 'Order payment' },
       }),
     });
     const data = await r.json().catch(() => ({}));

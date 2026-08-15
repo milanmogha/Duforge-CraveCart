@@ -34,7 +34,7 @@ function Login() {
   };
   return (
     <div className="card auth-box">
-      <h1>DAPIGO <em style={{ color: 'var(--brand)', fontStyle: 'normal' }}>Admin</em></h1>
+      <h1>CRAVECART <em style={{ color: 'var(--brand)', fontStyle: 'normal' }}>Admin</em></h1>
       <p className="muted">Platform operator console</p>
       <form onSubmit={submit}>
         <div className="field"><label>Email</label><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /></div>
@@ -42,7 +42,7 @@ function Login() {
         {err && <div className="error-text">{err}</div>}
         <button className="btn block">Login</button>
       </form>
-      <p className="muted" style={{ fontSize: 12, textAlign: 'center' }}>Demo: admin@dapigo.com / admin123</p>
+      <p className="muted" style={{ fontSize: 12, textAlign: 'center' }}>Demo: admin@cravecart.com / admin123</p>
     </div>
   );
 }
@@ -56,7 +56,7 @@ function Shell() {
     <div className="layout">
       <aside className="sidebar">
         <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-          <img src="/logo.png" alt="DapiGO" style={{ width: 34, height: 34, borderRadius: 8 }} />
+          <img src="/logo.png" alt="CraveCart" style={{ width: 34, height: 34, borderRadius: 8 }} />
           <span>Dapi<em>GO</em> Admin</span>
         </div>
         <nav>

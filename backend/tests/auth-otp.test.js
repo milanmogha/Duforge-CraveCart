@@ -5,7 +5,7 @@ import { Otp } from '../src/models/Misc.js';
 // v1 parity: verify_user → verify_otp → register_user (Api.php), gated by
 // authentication_settings.authentication_method. See docs/PARITY_AUDIT_2026-07-12.md.
 
-const signup = { name: 'New Cust', email: 'new@test.dapigo', phone: '9812345678', password: 'pass1234' };
+const signup = { name: 'New Cust', email: 'new@test.cravecart', phone: '9812345678', password: 'pass1234' };
 
 describe('phone verification (authenticationMethod = none)', () => {
   it('registers without any phone check — the default, so demo logins keep working', async () => {
@@ -84,7 +84,7 @@ describe('phone verification (authenticationMethod = sms)', () => {
 
     const replay = await api()
       .post('/api/auth/register')
-      .send({ ...signup, email: 'other@test.dapigo' });
+      .send({ ...signup, email: 'other@test.cravecart' });
     expect(replay.status).toBe(400);
     expect(replay.body.message).toMatch(/verify your phone/i);
   });

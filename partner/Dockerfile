@@ -1,4 +1,4 @@
-# DAPIGO Partner (Vite + React) — production, port 5175
+# CRAVECART Partner (Vite + React) — production, port 5175
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package.json package-lock.json* ./
@@ -8,7 +8,7 @@ RUN if [ -f package-lock.json ]; then \
       npm install --no-audit --no-fund; \
     fi
 COPY . .
-ARG VITE_BASE_PATH=/dapigo-partner
+ARG VITE_BASE_PATH=/cravecart-partner
 ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 RUN npm run build
 
@@ -23,8 +23,8 @@ RUN echo 'server { \
     include /etc/nginx/mime.types; \
     default_type application/octet-stream; \
     resolver 127.0.0.11 ipv6=off valid=10s; \
-    location /api/ { set $up http://dapigo-api:5000; proxy_pass $up; proxy_set_header Host $host; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; } \
-    location /uploads/ { set $up http://dapigo-api:5000; proxy_pass $up; } \
+    location /api/ { set $up http://cravecart-api:5000; proxy_pass $up; proxy_set_header Host $host; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; } \
+    location /uploads/ { set $up http://cravecart-api:5000; proxy_pass $up; } \
     location / { try_files $uri $uri/ /index.html; } \
 }' > /etc/nginx/conf.d/default.conf
 

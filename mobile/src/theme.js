@@ -1,4 +1,4 @@
-// Official DapiGO theme (see repo CLAUDE.md)
+// Official CraveCart theme (see repo CLAUDE.md)
 export const C = {
   brand: '#00b3a6',
   brandDark: '#009288',

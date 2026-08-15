@@ -66,12 +66,12 @@ async function run() {
 
   console.log('Creating users...');
   const admin = await User.create({
-    name: 'Admin', email: 'admin@dapigo.com', phone: '9000000001',
+    name: 'Admin', email: 'admin@cravecart.com', phone: '9000000001',
     password: 'admin123', role: 'admin', referralCode: 'ADMIN1',
   });
 
   const partner1 = await User.create({
-    name: 'Ravi Kumar', email: 'partner@dapigo.com', phone: '9000000002',
+    name: 'Ravi Kumar', email: 'partner@cravecart.com', phone: '9000000002',
     password: 'partner123', role: 'partner', referralCode: 'RAVI1234',
     partnerProfile: {
       storeName: 'Spice Garden', slug: 'spice-garden',
@@ -86,7 +86,7 @@ async function run() {
   });
 
   const partner2 = await User.create({
-    name: 'Meera Shah', email: 'partner2@dapigo.com', phone: '9000000003',
+    name: 'Meera Shah', email: 'partner2@cravecart.com', phone: '9000000003',
     password: 'partner123', role: 'partner', referralCode: 'MEER5678',
     partnerProfile: {
       storeName: 'Fresh Basket', slug: 'fresh-basket',
@@ -101,7 +101,7 @@ async function run() {
   });
 
   const partner3 = await User.create({
-    name: 'Chen Li', email: 'partner3@dapigo.com', phone: '9000000006',
+    name: 'Chen Li', email: 'partner3@cravecart.com', phone: '9000000006',
     password: 'partner123', role: 'partner', referralCode: 'CHEN4321',
     partnerProfile: {
       storeName: 'Dragon Wok', slug: 'dragon-wok',
@@ -116,7 +116,7 @@ async function run() {
   });
 
   const partner4 = await User.create({
-    name: 'Sarah Dsouza', email: 'partner4@dapigo.com', phone: '9000000007',
+    name: 'Sarah Dsouza', email: 'partner4@cravecart.com', phone: '9000000007',
     password: 'partner123', role: 'partner', referralCode: 'SARA8765',
     partnerProfile: {
       storeName: 'Bake House & Co', slug: 'bake-house-co',
@@ -131,7 +131,7 @@ async function run() {
   });
 
   const rider = await User.create({
-    name: 'Suresh Rider', email: 'rider@dapigo.com', phone: '9000000004',
+    name: 'Suresh Rider', email: 'rider@cravecart.com', phone: '9000000004',
     password: 'rider123', role: 'rider', referralCode: 'SURE9012',
     riderProfile: {
       vehicleType: 'bike', vehicleNumber: 'KA01AB1234', licenseNumber: 'DL123456',
@@ -141,7 +141,7 @@ async function run() {
   });
 
   const customer = await User.create({
-    name: 'Aakash Customer', email: 'customer@dapigo.com', phone: '9000000005',
+    name: 'Aakash Customer', email: 'customer@cravecart.com', phone: '9000000005',
     password: 'customer123', role: 'customer', referralCode: 'AAKA3456',
     walletBalance: 1000,
     addresses: [
@@ -156,12 +156,12 @@ async function run() {
 
   // extra customers so seeded reviews come from more than one name
   const customer2 = await User.create({
-    name: 'Priya Nair', email: 'priya@dapigo.com', phone: '9000000008',
+    name: 'Priya Nair', email: 'priya@cravecart.com', phone: '9000000008',
     password: 'customer123', role: 'customer', referralCode: 'PRIY6543',
     addresses: [{ label: 'Home', line1: '7 Indiranagar 100ft Road', city: 'Bengaluru', area: 'Indiranagar', pincode: '560038', lat: 12.9784, lng: 77.6408, isDefault: true }],
   });
   const customer3 = await User.create({
-    name: 'Rahul Verma', email: 'rahul@dapigo.com', phone: '9000000009',
+    name: 'Rahul Verma', email: 'rahul@cravecart.com', phone: '9000000009',
     password: 'customer123', role: 'customer', referralCode: 'RAHU2109',
     addresses: [{ label: 'Home', line1: '19 Koramangala 5th Block', city: 'Bengaluru', area: 'Koramangala', pincode: '560095', lat: 12.9352, lng: 77.6245, isDefault: true }],
   });
@@ -335,7 +335,7 @@ async function run() {
   const dessertCats = [cats['Desserts']._id, cats['Ice Cream']._id, cats['Bakery']._id];
   const sweetTreats = await Product.find({ category: { $in: dessertCats } }).limit(8).select('_id');
   await FeaturedSection.insertMany([
-    { title: 'Best sellers', subtitle: 'Most loved by DapiGO customers', products: bestSellers.map((p) => p._id), sortOrder: 0 },
+    { title: 'Best sellers', subtitle: 'Most loved by CraveCart customers', products: bestSellers.map((p) => p._id), sortOrder: 0 },
     { title: 'Fresh veg picks', subtitle: 'Green and wholesome', products: vegPicks.map((p) => p._id), sortOrder: 1 },
     { title: 'Sweet treats', subtitle: 'Bakes, cakes and scoops', products: sweetTreats.map((p) => p._id), sortOrder: 2 },
   ]);
@@ -343,7 +343,7 @@ async function run() {
   console.log('Creating promos, sliders, offers, settings, pages, faqs...');
   await PromoCode.insertMany([
     { code: 'WELCOME50', description: '50 off on your first order above 299', type: 'flat', value: 50, minOrder: 299, perUserLimit: 1 },
-    { code: 'DAPIGO10', description: '10% off up to 100 on orders above 199', type: 'percent', value: 10, minOrder: 199, maxDiscount: 100, perUserLimit: 5 },
+    { code: 'CRAVECART10', description: '10% off up to 100 on orders above 199', type: 'percent', value: 10, minOrder: 199, maxDiscount: 100, perUserLimit: 5 },
     { code: 'SPICE20', description: '20% off at Spice Garden (min 399)', type: 'percent', value: 20, minOrder: 399, maxDiscount: 150, partner: partner1._id, perUserLimit: 3 },
     { code: 'WOKDEAL', description: '15% off at Dragon Wok (min 249)', type: 'percent', value: 15, minOrder: 249, maxDiscount: 120, partner: partner3._id, perUserLimit: 3 },
   ]);
@@ -352,7 +352,7 @@ async function run() {
     { title: 'Craving Biryani?', image: IMG.biryani.replace('w=600', 'w=1200'), sortOrder: 0 },
     { title: 'Momos, noodles & more at Dragon Wok', image: IMG.momos.replace('w=600', 'w=1200'), sortOrder: 1 },
     { title: 'Fresh Groceries Daily', image: IMG.veggies.replace('w=600', 'w=1200'), sortOrder: 2 },
-    { title: 'Flat 10% off with DAPIGO10', image: IMG.pizza.replace('w=600', 'w=1200'), sortOrder: 3 },
+    { title: 'Flat 10% off with CRAVECART10', image: IMG.pizza.replace('w=600', 'w=1200'), sortOrder: 3 },
   ]);
 
   await Offer.insertMany([
@@ -362,38 +362,38 @@ async function run() {
   ]);
 
   await Setting.insertMany([
-    { key: 'appName', value: 'DAPIGO' },
+    { key: 'appName', value: 'CRAVECART' },
     { key: 'currency', value: '₹' },
-    { key: 'supportEmail', value: 'support@dapigo.com' },
+    { key: 'supportEmail', value: 'support@cravecart.com' },
     { key: 'supportPhone', value: '+91 90000 00000' },
     { key: 'defaultCommission', value: 10 },
   ]);
 
   await Page.insertMany([
-    { slug: 'about', title: 'About Us', content: 'DAPIGO is a multi-vendor delivery platform connecting customers with local stores and restaurants, delivered by a trusted rider network.' },
-    { slug: 'privacy', title: 'Privacy Policy', content: 'We respect your privacy. Your data is used only to operate the DAPIGO service and is never sold to third parties.' },
-    { slug: 'terms', title: 'Terms & Conditions', content: 'By using DAPIGO you agree to our fair-use terms. Orders are subject to store acceptance and rider availability.' },
+    { slug: 'about', title: 'About Us', content: 'CRAVECART is a multi-vendor delivery platform connecting customers with local stores and restaurants, delivered by a trusted rider network.' },
+    { slug: 'privacy', title: 'Privacy Policy', content: 'We respect your privacy. Your data is used only to operate the CRAVECART service and is never sold to third parties.' },
+    { slug: 'terms', title: 'Terms & Conditions', content: 'By using CRAVECART you agree to our fair-use terms. Orders are subject to store acceptance and rider availability.' },
     // v1 parity: Contact_us.php + per-role privacy pages (Partner_/Rider_privacy_policy.php)
-    { slug: 'contact', title: 'Contact Us', content: 'Reach the DAPIGO team at support@dapigo.com or +91 90000 00000. We usually reply within one business day.' },
+    { slug: 'contact', title: 'Contact Us', content: 'Reach the CRAVECART team at support@cravecart.com or +91 90000 00000. We usually reply within one business day.' },
     { slug: 'partner-privacy', title: 'Partner Privacy Policy', content: 'Store and KYC details submitted by partners are used only for order fulfilment, payouts and compliance, and are never sold to third parties.' },
     { slug: 'rider-privacy', title: 'Rider Privacy Policy', content: 'Rider location is shared with customers only while a delivery is active. Vehicle and KYC details are used for verification and payouts only.' },
   ]);
 
   await Faq.insertMany([
     { question: 'How do I track my order?', answer: 'Open Orders → select your order to see live status updates from the store and rider.', sortOrder: 0 },
-    { question: 'What payment methods are supported?', answer: 'Cash on Delivery and DAPIGO Wallet. You can top up the wallet from your profile.', sortOrder: 1 },
-    { question: 'How do refunds work?', answer: 'Cancelled prepaid orders are refunded instantly to your DAPIGO wallet.', sortOrder: 2 },
+    { question: 'What payment methods are supported?', answer: 'Cash on Delivery and CRAVECART Wallet. You can top up the wallet from your profile.', sortOrder: 1 },
+    { question: 'How do refunds work?', answer: 'Cancelled prepaid orders are refunded instantly to your CRAVECART wallet.', sortOrder: 2 },
     { question: 'How do I become a partner?', answer: 'Register from the Partner Console. After KYC approval by our team you can start selling.', sortOrder: 3 },
   ]);
 
   console.log('\nSeed complete! Demo accounts (password after the dash):');
-  console.log('  admin@dapigo.com     - admin123    (admin console)');
-  console.log('  partner@dapigo.com   - partner123  (Spice Garden)');
-  console.log('  partner2@dapigo.com  - partner123  (Fresh Basket)');
-  console.log('  partner3@dapigo.com  - partner123  (Dragon Wok)');
-  console.log('  partner4@dapigo.com  - partner123  (Bake House & Co)');
-  console.log('  rider@dapigo.com     - rider123    (rider app)');
-  console.log('  customer@dapigo.com  - customer123 (storefront, ₹1000 wallet)');
+  console.log('  admin@cravecart.com     - admin123    (admin console)');
+  console.log('  partner@cravecart.com   - partner123  (Spice Garden)');
+  console.log('  partner2@cravecart.com  - partner123  (Fresh Basket)');
+  console.log('  partner3@cravecart.com  - partner123  (Dragon Wok)');
+  console.log('  partner4@cravecart.com  - partner123  (Bake House & Co)');
+  console.log('  rider@cravecart.com     - rider123    (rider app)');
+  console.log('  customer@cravecart.com  - customer123 (storefront, ₹1000 wallet)');
   await mongoose.disconnect();
 }
 

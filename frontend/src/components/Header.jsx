@@ -266,7 +266,7 @@ export default function Header() {
                     </>
                   ) : (
                     <Link href="/auth" onClick={() => setIsMobileMenuOpen(false)} className={buttonVariants({ className: "w-full" })}>
-                      Login to DapiGO
+                      Login to CraveCart
                     </Link>
                   )}
                   

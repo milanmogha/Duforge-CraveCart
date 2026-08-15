@@ -18,7 +18,7 @@ import { asyncH } from '../middleware/error.js';
 const router = Router();
 
 const NOMINATIM = 'https://nominatim.openstreetmap.org';
-const UA = 'DapiGO/2.0 (self-hosted delivery platform)';
+const UA = 'CraveCart/2.0 (self-hosted delivery platform)';
 
 // Nominatim's usage policy caps us at ~1 request/second. Serialize through a queue
 // and memoize repeated lookups — an address form fires a query per keystroke.

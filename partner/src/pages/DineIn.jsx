@@ -21,7 +21,7 @@ export function printReceipt(order, store) {
     .rule { border-top: 1px dashed #000; margin: 6px 0; }
     .tot td { font-weight: 700; }
   </style></head><body>
-    <h2>${store || 'DapiGO'}</h2>
+    <h2>${store || 'CraveCart'}</h2>
     <p class="center">${order.orderType === 'dine_in' ? 'DINE-IN' : 'POS'} · ${order.orderNumber}</p>
     <p class="center">${new Date(order.createdAt).toLocaleString('en-IN')}</p>
     ${order.table?.title ? `<p class="center">Table: ${order.table.title}${order.waiter?.name ? ` · Waiter: ${order.waiter.name}` : ''}</p>` : ''}

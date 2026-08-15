@@ -20,7 +20,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Dapigo",
+  title: "CraveCart",
   description: "Food, groceries and essentials from local stores, delivered fast.",
 };
 

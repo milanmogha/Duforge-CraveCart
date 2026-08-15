@@ -36,7 +36,7 @@ function Tabs() {
         tabBarLabelStyle: { fontFamily: F.sb, fontSize: 11 },
       }}
     >
-      <Tab.Screen name="DashboardTab" component={DashboardScreen} options={{ title: 'DapiGO Partner', tabBarLabel: 'Dashboard', tabBarIcon: tabIcon('📊') }} />
+      <Tab.Screen name="DashboardTab" component={DashboardScreen} options={{ title: 'CraveCart Partner', tabBarLabel: 'Dashboard', tabBarIcon: tabIcon('📊') }} />
       <Tab.Screen name="OrdersTab" component={OrdersScreen} options={{ title: 'Orders', tabBarLabel: 'Orders', tabBarIcon: tabIcon('📦') }} />
       <Tab.Screen name="ProductsTab" component={ProductsScreen} options={{ title: 'Products', tabBarLabel: 'Products', tabBarIcon: tabIcon('🍽️') }} />
       <Tab.Screen name="WalletTab" component={WalletScreen} options={{ title: 'Wallet & payouts', tabBarLabel: 'Wallet', tabBarIcon: tabIcon('💰') }} />

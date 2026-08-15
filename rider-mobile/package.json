@@ -1,6 +1,6 @@
 {
   "name": "rider-mobile",
-  "description": "DapiGO rider mobile app (Expo / React Native)",
+  "description": "CraveCart rider mobile app (Expo / React Native)",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {

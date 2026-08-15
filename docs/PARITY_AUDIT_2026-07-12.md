@@ -1,4 +1,4 @@
-# DapiGO v1 → v2 Parity Audit (2026-07-12)
+# CraveCart v1 → v2 Parity Audit (2026-07-12)
 
 > **STATUS: all findings below have been addressed.** See "Resolution" at the bottom for
 > what changed, what was deliberately left alone, and **two findings in this audit that
@@ -168,9 +168,9 @@ the dev scripts were launching had been broken since it landed. Fixed, then port
 
 Deploy switched to it: new `frontend/Dockerfile` (Node server, not static nginx — the app has
 server-rendered routes), `docker-compose.deploy.yml` builds `./frontend` on :3000, and
-`deploy/nginx.conf` re-adds the `/dapigo` prefix that both the funnel and the local rewrite strip,
+`deploy/nginx.conf` re-adds the `/cravecart` prefix that both the funnel and the local rewrite strip,
 so Next receives the prefix its `basePath` expects. Verified by running the standalone server exactly
-as the container does: prefixed routes 200, assets emitted under `/dapigo`, unprefixed paths 404.
+as the container does: prefixed routes 200, assets emitted under `/cravecart`, unprefixed paths 404.
 
 **`frontend-vite/` is still on disk on purpose** — delete it only after the new image deploys clean.
 **The running stack was not rebuilt or restarted.**
@@ -245,7 +245,7 @@ Also fixed while sweeping: the referral **percentage / cap / bonus-times** setti
   the browser instead. **0 unmapped.**
 - **77 / 77 v1 web controllers** → 74 covered; **3 deliberately not ported**: `Purchase_code`
   (eRestro licence check), `Updater` (eRestro auto-updater), `Migrate` (CI3 migration runner). These
-  are the eRestro vendor's own infrastructure, not DapiGO features — porting them would mean
+  are the eRestro vendor's own infrastructure, not CraveCart features — porting them would mean
   reimplementing someone else's licensing.
 - **92 tests, all green.**
 
@@ -254,14 +254,14 @@ Also fixed while sweeping: the referral **percentage / cap / bonus-times** setti
 `docker compose -f docker-compose.deploy.yml up -d` — the Next.js storefront, the hardened API and the
 new admin console are **live** on `127.0.0.1:6002` (the Tailscale funnel origin). Verified after the
 swap: storefront root + `/checkout` + both payment-return routes serve 200, assets load under
-`/dapigo`, `/api/health` and `/admin/` are up, login and `catalog/home` still work, and a forged
+`/cravecart`, `/api/health` and `/admin/` are up, login and `catalog/home` still work, and a forged
 Razorpay webhook is now refused in production. `frontend-vite/` has been deleted
 (recoverable: `git checkout ab84df7 -- frontend-vite`).
 
 One thing bit us during the swap and is worth remembering: **nginx must be restarted explicitly**
 after `deploy/nginx.conf` changes — it's a read-only bind mount, so `up -d` leaves the old config in
-a still-running container. And the old `location = /dapigo { return 301 /dapigo/; }` (needed when the
-storefront was static Vite) **deadlocks against Next**, whose `basePath` serves the root as `/dapigo`
+a still-running container. And the old `location = /cravecart { return 301 /cravecart/; }` (needed when the
+storefront was static Vite) **deadlocks against Next**, whose `basePath` serves the root as `/cravecart`
 and 308s the trailing slash straight back. That rule is now a `rewrite`, and `location = /` proxies
 the root without adding a slash.
 

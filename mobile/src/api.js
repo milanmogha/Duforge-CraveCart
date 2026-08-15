@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
-const TOKEN_KEY = 'dapigo_customer_token';
+const TOKEN_KEY = 'cravecart_customer_token';
 export const PANEL = 'customer';
 
 // In dev, the backend lives on the same machine as the Metro bundler — derive its
@@ -10,7 +10,7 @@ const devHost = (Constants.expoConfig?.hostUri || '').split(':')[0];
 export const API_ORIGIN =
   process.env.EXPO_PUBLIC_API_URL || (devHost ? `http://${devHost}:5000` : 'http://localhost:5000');
 
-// The deployed API lives under a path prefix (…ts.net/dapigo). socket.io needs the
+// The deployed API lives under a path prefix (…ts.net/cravecart). socket.io needs the
 // prefix as `path`, not as part of the URL (a URL path would be read as a namespace).
 const originMatch = API_ORIGIN.match(/^(https?:\/\/[^/]+)(\/.*)?$/);
 export const SOCKET_ORIGIN = originMatch ? originMatch[1] : API_ORIGIN;

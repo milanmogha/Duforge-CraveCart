@@ -25,7 +25,7 @@ export async function makeUser(overrides = {}) {
   const rand = Math.random().toString(36).slice(2, 8);
   const doc = {
     name: overrides.name || `${role}-${rand}`,
-    email: overrides.email || `${role}-${rand}@test.dapigo`,
+    email: overrides.email || `${role}-${rand}@test.cravecart`,
     password: overrides.password || 'pass1234',
     phone: overrides.phone || `9${Math.floor(100000000 + Math.random() * 899999999)}`,
     role,

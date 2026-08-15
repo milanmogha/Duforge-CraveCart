@@ -1,4 +1,4 @@
-# DAPIGO customer storefront (Next.js) — production
+# CRAVECART customer storefront (Next.js) — production
 # Unlike the old Vite storefront this is not a static bundle: the app has
 # server-rendered routes, so the image ships a Node server (`output: 'standalone'`).
 FROM node:20-alpine AS builder
@@ -12,7 +12,7 @@ RUN if [ -f package-lock.json ]; then \
 COPY . .
 
 # basePath is inlined into the client bundle at build time — it cannot be switched later.
-ARG NEXT_PUBLIC_BASE_PATH=/dapigo
+ARG NEXT_PUBLIC_BASE_PATH=/cravecart
 ENV NEXT_PUBLIC_BASE_PATH=${NEXT_PUBLIC_BASE_PATH}
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build

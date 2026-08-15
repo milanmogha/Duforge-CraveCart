@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'dapigo_partner_token';
+const TOKEN_KEY = 'cravecart_partner_token';
 export const PANEL = 'partner';
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);

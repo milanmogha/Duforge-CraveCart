@@ -592,7 +592,7 @@ router.get(
       (await Setting.find({ key: { $in: ['appName', 'currency', 'supportEmail', 'supportPhone'] } }))
         .map((s) => [s.key, s.value])
     );
-    const brand = settings.appName || 'DapiGO';
+    const brand = settings.appName || 'CraveCart';
     const cur = settings.currency || '₹';
     const money = (n) => `${cur}${Number(n || 0).toFixed(2)}`;
     // Escape everything interpolated — order notes and product titles are user input.

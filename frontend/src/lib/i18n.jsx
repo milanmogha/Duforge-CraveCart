@@ -11,8 +11,8 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 
-const LANG_KEY = 'dapigo_lang';
-const CACHE_KEY = 'dapigo_lang_cache';
+const LANG_KEY = 'cravecart_lang';
+const CACHE_KEY = 'cravecart_lang_cache';
 const EN = { code: 'en', rtl: false, strings: {} };
 
 const I18nCtx = createContext({ t: (k, d) => d ?? k, code: 'en', setCode: () => {}, languages: [], rtl: false });

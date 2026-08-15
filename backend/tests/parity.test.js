@@ -160,7 +160,7 @@ describe('system users (v1 System_users.php)', () => {
     const created = await api()
       .post('/api/admin/system-users')
       .set(auth(adminToken))
-      .send({ name: 'Ops', email: 'ops@test.dapigo', password: 'ops12345' });
+      .send({ name: 'Ops', email: 'ops@test.cravecart', password: 'ops12345' });
     expect(created.status).toBe(201);
 
     const list = await api().get('/api/admin/system-users').set(auth(adminToken));

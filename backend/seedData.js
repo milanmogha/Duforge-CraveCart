@@ -4,7 +4,7 @@ import User from './src/models/User.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/dapigo_v2';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/cravecart_v2';
 
 async function seed() {
   try {
@@ -20,13 +20,13 @@ async function seed() {
     let partner = await User.findOne({ role: 'partner' });
     if (!partner) {
       partner = await User.create({
-        name: 'Dapigo Premium Store',
-        email: 'store@dapigo.com',
+        name: 'CraveCart Premium Store',
+        email: 'store@cravecart.com',
         phone: '9876543210',
         password: 'dummy',
         role: 'partner',
         partnerProfile: {
-          storeName: 'Dapigo Premium Store',
+          storeName: 'CraveCart Premium Store',
           description: 'Best items in town.',
           city: 'Mumbai',
           isOpen: true

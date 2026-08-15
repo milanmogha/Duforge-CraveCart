@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const APP_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 // Path-based deployment (see deploy/nginx.conf): the storefront is published at
-// https://<ts-node>.ts.net/dapigo. basePath makes Next emit /dapigo-prefixed page
+// https://<ts-node>.ts.net/cravecart. basePath makes Next emit /cravecart-prefixed page
 // and asset URLs; nginx hands Next the prefix back on the way in. It is inlined at
 // build time, hence the build ARG in the Dockerfile rather than a runtime env var.
 const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');

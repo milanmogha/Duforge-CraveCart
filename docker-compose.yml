@@ -3,7 +3,7 @@ name: cravecart
 services:
   mongo:
     image: mongo:7
-    container_name: dapigo-mongo
+    container_name: cravecart-mongo
     restart: unless-stopped
     volumes:
       - cravecart_mongo_data:/data/db
@@ -17,14 +17,14 @@ services:
   backend:
     image: ghcr.io/milanmogha/cravecart-backend:latest
     build: ./backend
-    container_name: dapigo-api
+    container_name: cravecart-api
     restart: unless-stopped
     env_file:
       - ./.env
     environment:
       - NODE_ENV=production
       - PORT=5000
-      - MONGO_URI=mongodb://mongo:27017/dapigo_v2
+      - MONGO_URI=mongodb://mongo:27017/cravecart_v2
     depends_on:
       mongo:
         condition: service_healthy
@@ -49,7 +49,7 @@ services:
       context: ./frontend
       args:
         NEXT_PUBLIC_BASE_PATH: ""
-    container_name: dapigo-frontend
+    container_name: cravecart-frontend
     restart: unless-stopped
     networks: [cravecart]
     ports:
@@ -66,7 +66,7 @@ services:
       context: ./admin
       args:
         VITE_BASE_PATH: /
-    container_name: dapigo-admin
+    container_name: cravecart-admin
     restart: unless-stopped
     networks: [cravecart]
     ports:
@@ -83,7 +83,7 @@ services:
       context: ./partner
       args:
         VITE_BASE_PATH: /
-    container_name: dapigo-partner
+    container_name: cravecart-partner
     restart: unless-stopped
     networks: [cravecart]
     ports:
@@ -100,7 +100,7 @@ services:
       context: ./rider
       args:
         VITE_BASE_PATH: /
-    container_name: dapigo-rider
+    container_name: cravecart-rider
     restart: unless-stopped
     networks: [cravecart]
     ports:

@@ -10,14 +10,14 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/dapigo"
+        "EXPO_PUBLIC_API_URL": "https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/cravecart"
       }
     },
     "production": {
       "autoIncrement": true,
       "credentialsSource": "local",
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/dapigo"
+        "EXPO_PUBLIC_API_URL": "https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/cravecart"
       },
       "android": {
         "buildType": "apk"

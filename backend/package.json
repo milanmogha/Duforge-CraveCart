@@ -1,7 +1,7 @@
 {
-  "name": "dapigo-backend",
+  "name": "cravecart-backend",
   "version": "2.0.0",
-  "description": "DAPIGO multi-vendor delivery platform API",
+  "description": "CRAVECART multi-vendor delivery platform API",
   "type": "module",
   "main": "src/server.js",
   "scripts": {

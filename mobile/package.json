@@ -1,6 +1,6 @@
 {
   "name": "mobile",
-  "description": "DapiGO customer mobile app (Expo / React Native)",
+  "description": "CraveCart customer mobile app (Expo / React Native)",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {

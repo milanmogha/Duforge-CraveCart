@@ -1,42 +1,42 @@
-# Self-hosted DapiGO deploy — fully self-contained (own Mongo, own edge nginx),
+# Self-hosted CraveCart deploy — fully self-contained (own Mongo, own edge nginx),
 # same pattern as makhana/vanam.
 #   Build & run:  docker compose -f docker-compose.deploy.yml up -d --build
-#   Seed:         docker compose -f docker-compose.deploy.yml exec dapigo-api node src/seed/seed.js
+#   Seed:         docker compose -f docker-compose.deploy.yml exec cravecart-api node src/seed/seed.js
 #   Local edge:   http://127.0.0.1:6002  (/, /admin, /partner, /rider, /api)
-#   Public API:   https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/dapigo
-#                 (tailscale funnel --bg --set-path=/dapigo http://127.0.0.1:6002)
-name: dapigo
+#   Public API:   https://aakash-ideapad-3-15iml05-u-1.tail7a4203.ts.net/cravecart
+#                 (tailscale funnel --bg --set-path=/cravecart http://127.0.0.1:6002)
+name: cravecart
 
 services:
-  dapigo-mongo:
+  cravecart-mongo:
     image: mongo:7
-    container_name: dapigo-mongo
+    container_name: cravecart-mongo
     restart: unless-stopped
     volumes:
-      - dapigo_mongo_data:/data/db
-    networks: [dapigo]
+      - cravecart_mongo_data:/data/db
+    networks: [cravecart]
     healthcheck:
       test: ["CMD", "mongosh", "--quiet", "--eval", "db.runCommand({ ping: 1 })"]
       interval: 15s
       timeout: 5s
       retries: 5
 
-  dapigo-api:
+  cravecart-api:
     build: ./backend
-    container_name: dapigo-api
+    container_name: cravecart-api
     restart: unless-stopped
     env_file:
       - ./backend/.env.production
     environment:
       - NODE_ENV=production
       - PORT=5000
-      - MONGO_URI=mongodb://dapigo-mongo:27017/dapigo_v2
+      - MONGO_URI=mongodb://cravecart-mongo:27017/cravecart_v2
     volumes:
-      - dapigo_uploads:/app/uploads
+      - cravecart_uploads:/app/uploads
     depends_on:
-      dapigo-mongo:
+      cravecart-mongo:
         condition: service_healthy
-    networks: [dapigo]
+    networks: [cravecart]
     expose:
       - "5000"
     healthcheck:
@@ -51,54 +51,54 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  dapigo-frontend:
+  cravecart-frontend:
     build:
       context: ./frontend
       args:
-        # public shape: https://<funnel-host>/dapigo (nginx also re-routes /dapigo/* locally)
-        NEXT_PUBLIC_BASE_PATH: /dapigo
-    container_name: dapigo-frontend
+        # public shape: https://<funnel-host>/cravecart (nginx also re-routes /cravecart/* locally)
+        NEXT_PUBLIC_BASE_PATH: /cravecart
+    container_name: cravecart-frontend
     restart: unless-stopped
-    networks: [dapigo]
+    networks: [cravecart]
     expose:
       - "3000"
 
-  dapigo-admin:
+  cravecart-admin:
     build:
       context: ./admin
       args:
         VITE_BASE_PATH: /admin
-    container_name: dapigo-admin
+    container_name: cravecart-admin
     restart: unless-stopped
-    networks: [dapigo]
+    networks: [cravecart]
     expose:
       - "5174"
 
-  dapigo-partner:
+  cravecart-partner:
     build:
       context: ./partner
       args:
         VITE_BASE_PATH: /partner
-    container_name: dapigo-partner
+    container_name: cravecart-partner
     restart: unless-stopped
-    networks: [dapigo]
+    networks: [cravecart]
     expose:
       - "5175"
 
-  dapigo-rider:
+  cravecart-rider:
     build:
       context: ./rider
       args:
         VITE_BASE_PATH: /rider
-    container_name: dapigo-rider
+    container_name: cravecart-rider
     restart: unless-stopped
-    networks: [dapigo]
+    networks: [cravecart]
     expose:
       - "5176"
 
-  dapigo-nginx:
+  cravecart-nginx:
     image: nginx:1.27-alpine
-    container_name: dapigo-nginx
+    container_name: cravecart-nginx
     restart: unless-stopped
     ports:
       - "127.0.0.1:6002:80"
@@ -106,17 +106,17 @@ services:
       - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./deploy/public/apk:/usr/share/nginx/html/apk:ro
     depends_on:
-      - dapigo-api
-      - dapigo-frontend
-      - dapigo-admin
-      - dapigo-partner
-      - dapigo-rider
-    networks: [dapigo]
+      - cravecart-api
+      - cravecart-frontend
+      - cravecart-admin
+      - cravecart-partner
+      - cravecart-rider
+    networks: [cravecart]
 
 networks:
-  dapigo:
-    name: dapigo
+  cravecart:
+    name: cravecart
 
 volumes:
-  dapigo_mongo_data:
-  dapigo_uploads:
+  cravecart_mongo_data:
+  cravecart_uploads:

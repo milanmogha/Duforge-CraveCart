@@ -13,7 +13,7 @@ npm --prefix rider run dev -- --port 4003 &
 
 echo ""
 echo "──────────────────────────────────────────────"
-echo "  DAPIGO is starting…"
+echo "  CRAVECART is starting…"
 echo "  API      → http://localhost:5000/api/health"
 echo "  Customer → http://localhost:4000"
 echo "  Admin    → http://localhost:4001"

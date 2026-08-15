@@ -62,7 +62,7 @@ export default function AuthScreen() {
           </Text>
           <Muted style={{ textAlign: 'center', marginBottom: 14 }}>
             {mode === 'login' && 'Manage your store, orders and payouts.'}
-            {mode === 'register' && 'Register as a DapiGO seller — go live after admin approval.'}
+            {mode === 'register' && 'Register as a CraveCart seller — go live after admin approval.'}
             {mode === 'forgot' && (reset.sent ? 'Enter the 6-digit code and your new password.' : "We'll send a reset code to your email.")}
           </Muted>
 
@@ -127,7 +127,7 @@ export default function AuthScreen() {
             </Text>
           </Text>
           {mode === 'login' && (
-            <Muted style={{ textAlign: 'center', fontSize: 12, marginTop: 8 }}>Demo: partner@dapigo.com / partner123</Muted>
+            <Muted style={{ textAlign: 'center', fontSize: 12, marginTop: 8 }}>Demo: partner@cravecart.com / partner123</Muted>
           )}
         </Card>
       </ScrollView>

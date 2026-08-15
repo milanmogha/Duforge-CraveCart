@@ -34,7 +34,7 @@ export async function openRazorpay(orderData, onDismiss) {
       order_id: orderData.razorpayOrderId,
       amount: Math.round(orderData.amount * 100),
       currency: orderData.currency,
-      name: orderData.name || 'DapiGO',
+      name: orderData.name || 'CraveCart',
       image: '/logo.png',
       prefill: orderData.prefill,
       theme: { color: '#00b3a6' },
@@ -395,7 +395,7 @@ export default function CheckoutPage() {
               <CardContent className="p-4">
                 <div className="flex gap-2">
                   <Input 
-                    placeholder="e.g. DAPIGO10" 
+                    placeholder="e.g. CRAVECART10" 
                     value={promo} 
                     onChange={(e) => setPromo(e.target.value.toUpperCase())} 
                     className="uppercase font-medium"

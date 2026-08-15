@@ -1,6 +1,6 @@
 {
   "name": "partner-mobile",
-  "description": "DapiGO partner mobile app (Expo / React Native)",
+  "description": "CraveCart partner mobile app (Expo / React Native)",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {

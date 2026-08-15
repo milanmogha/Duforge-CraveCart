@@ -1,4 +1,4 @@
-# DAPIGO v2 — Multi-vendor Delivery Platform
+# CRAVECART v2 — Multi-vendor Delivery Platform
 
 Full-stack rebuild in **React + Node.js (Express) + MongoDB**, with every surface in its own folder:
 
@@ -17,7 +17,7 @@ Requires **Node 18+** and a local **MongoDB** running on `127.0.0.1:27017`.
 
 ```bash
 npm run install:all   # install deps for all 5 apps
-npm run seed          # create demo data (database: dapigo_v2)
+npm run seed          # create demo data (database: cravecart_v2)
 npm run dev           # start backend + all 4 frontends
 ```
 
@@ -34,15 +34,15 @@ Phone and laptop must be on the same Wi-Fi; the app auto-targets the backend on 
 
 | Panel     | Email                | Password    |
 |-----------|----------------------|-------------|
-| Admin     | admin@dapigo.com     | admin123    |
-| Partner   | partner@dapigo.com   | partner123  |
-| Partner 2 | partner2@dapigo.com  | partner123  |
-| Rider     | rider@dapigo.com     | rider123    |
-| Customer  | customer@dapigo.com  | customer123 |
+| Admin     | admin@cravecart.com     | admin123    |
+| Partner   | partner@cravecart.com   | partner123  |
+| Partner 2 | partner2@cravecart.com  | partner123  |
+| Rider     | rider@cravecart.com     | rider123    |
+| Customer  | customer@cravecart.com  | customer123 |
 
 ## The full order flow (try it!)
 
-1. **Customer** (5173): browse → add to cart → checkout with promo `DAPIGO10`, pay COD or wallet.
+1. **Customer** (5173): browse → add to cart → checkout with promo `CRAVECART10`, pay COD or wallet.
 2. **Partner** (5175): Orders → Accept → Start preparing → Mark ready.
 3. **Rider** (5176): Deliveries → Available → Accept → Picked up → Start delivery → Mark delivered.
    - Settlement runs automatically: partner earns items+tax minus commission, rider earns delivery fee + tip.
@@ -74,7 +74,7 @@ Frontends proxy `/api` and `/uploads` to the backend in dev (see each `vite.conf
 
 ```
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/dapigo_v2
+MONGO_URI=mongodb://127.0.0.1:27017/cravecart_v2
 JWT_SECRET=change_me
 JWT_EXPIRES=7d
 ```

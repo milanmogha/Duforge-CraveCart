@@ -63,7 +63,7 @@ export default function AuthScreen({ navigation }) {
           </Text>
           <Muted style={{ textAlign: 'center', marginBottom: 14 }}>
             {mode === 'login' && 'Login to order from your favorite stores.'}
-            {mode === 'register' && 'Join DapiGO in seconds.'}
+            {mode === 'register' && 'Join CraveCart in seconds.'}
             {mode === 'forgot' && (reset.sent ? 'Enter the 6-digit code and your new password.' : "We'll send a reset code to your email.")}
           </Muted>
 
@@ -130,7 +130,7 @@ export default function AuthScreen({ navigation }) {
             </Text>
           </Text>
           {mode === 'login' && (
-            <Muted style={{ textAlign: 'center', fontSize: 12, marginTop: 8 }}>Demo: customer@dapigo.com / customer123</Muted>
+            <Muted style={{ textAlign: 'center', fontSize: 12, marginTop: 8 }}>Demo: customer@cravecart.com / customer123</Muted>
           )}
         </Card>
       </ScrollView>

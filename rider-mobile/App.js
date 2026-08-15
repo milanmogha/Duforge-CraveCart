@@ -35,7 +35,7 @@ function Tabs() {
         tabBarLabelStyle: { fontFamily: F.sb, fontSize: 11 },
       }}
     >
-      <Tab.Screen name="DashboardTab" component={DashboardScreen} options={{ title: 'DapiGO Rider', tabBarLabel: 'Dashboard', tabBarIcon: tabIcon('📊') }} />
+      <Tab.Screen name="DashboardTab" component={DashboardScreen} options={{ title: 'CraveCart Rider', tabBarLabel: 'Dashboard', tabBarIcon: tabIcon('📊') }} />
       <Tab.Screen name="DeliveriesTab" component={DeliveriesScreen} options={{ title: 'Deliveries', tabBarLabel: 'Deliveries', tabBarIcon: tabIcon('🛵') }} />
       <Tab.Screen name="WalletTab" component={WalletScreen} options={{ title: 'Wallet & payouts', tabBarLabel: 'Wallet', tabBarIcon: tabIcon('💰') }} />
       <Tab.Screen name="ProfileTab" component={ProfileScreen} options={{ title: 'Profile', tabBarLabel: 'Profile', tabBarIcon: tabIcon('👤') }} />

@@ -54,7 +54,7 @@ function Tabs() {
         tabBarLabelStyle: { fontFamily: F.sb, fontSize: 11 },
       }}
     >
-      <Tab.Screen name="HomeTab" component={HomeScreen} options={{ title: 'DapiGO', tabBarLabel: 'Home', tabBarIcon: tabIcon('🏠') }} />
+      <Tab.Screen name="HomeTab" component={HomeScreen} options={{ title: 'CraveCart', tabBarLabel: 'Home', tabBarIcon: tabIcon('🏠') }} />
       <Tab.Screen name="StoresTab" component={StoresScreen} options={{ title: 'All stores', tabBarLabel: 'Stores', tabBarIcon: tabIcon('🏪') }} />
       <Tab.Screen
         name="CartTab"

@@ -132,7 +132,7 @@ describe('referral code validation (v1 validate_refer_code)', () => {
     const res = await api()
       .post('/api/auth/register')
       .send({
-        name: 'Referred', email: 'ref@test.dapigo', phone: '9700000123',
+        name: 'Referred', email: 'ref@test.cravecart', phone: '9700000123',
         password: 'pass1234', referralCode: 'FRIEND1',
       });
     expect(res.status).toBe(201);

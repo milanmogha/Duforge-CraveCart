@@ -110,7 +110,7 @@ async function issueOtp(phone, purpose, ttl) {
   const code = generateOTP();
   await Otp.deleteMany({ phone, purpose });
   await Otp.create({ phone, code, purpose, expiresAt: new Date(Date.now() + ttl * 1000) });
-  const sms = await sendSMS(phone, `Your DapiGO verification code is ${code}. Valid for ${Math.round(ttl / 60) || 1} minute(s).`);
+  const sms = await sendSMS(phone, `Your CraveCart verification code is ${code}. Valid for ${Math.round(ttl / 60) || 1} minute(s).`);
   // Demo fallback mirrors forgot-password: only leak the code when nothing could deliver it.
   return { code, delivered: sms.sent };
 }
@@ -329,12 +329,12 @@ router.post(
 
     const channels = [];
     if (user.phone) {
-      const sms = await sendSMS(user.phone, `Your DapiGO password reset code is ${code}. Valid for 10 minutes.`);
+      const sms = await sendSMS(user.phone, `Your CraveCart password reset code is ${code}. Valid for 10 minutes.`);
       if (sms.sent) channels.push('SMS');
     }
     const mail = await sendEmail(
       user.email,
-      'Your DapiGO password reset code',
+      'Your CraveCart password reset code',
       emailTemplate('Password reset', `<p>Your reset code is:</p><p style="font-size:28px;font-weight:800;letter-spacing:4px">${code}</p><p>It is valid for 10 minutes. If you didn't request this, ignore this email.</p>`)
     );
     if (mail.sent) channels.push('email');

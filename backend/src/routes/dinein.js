@@ -138,7 +138,7 @@ router.post(
       else {
         const guest = await User.create({
           name: customerName?.trim() || 'Walk-in customer',
-          email: `walkin-${phone}@pos.dapigo.local`,
+          email: `walkin-${phone}@pos.cravecart.local`,
           phone,
           password: crypto.randomBytes(9).toString('base64url'),
           role: 'customer',
@@ -146,7 +146,7 @@ router.post(
         customerId = guest._id;
       }
     } else {
-      const guestEmail = `walkin-${req.user._id}@pos.dapigo.local`;
+      const guestEmail = `walkin-${req.user._id}@pos.cravecart.local`;
       let guest = await User.findOne({ email: guestEmail });
       if (!guest) {
         guest = await User.create({

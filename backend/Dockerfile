@@ -1,4 +1,4 @@
-# DAPIGO Backend (Express + MongoDB) — production
+# CRAVECART Backend (Express + MongoDB) — production
 FROM node:20-alpine
 WORKDIR /app
 

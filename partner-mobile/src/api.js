@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
-const TOKEN_KEY = 'dapigo_partner_token';
+const TOKEN_KEY = 'cravecart_partner_token';
 export const PANEL = 'partner';
 
 // In dev, the backend lives on the same machine as the Metro bundler — derive its

@@ -11,7 +11,7 @@ initSocket(server);
 const PORT = process.env.PORT || 5000;
 connectDB()
   .then(() => {
-    server.listen(PORT, () => console.log(`DAPIGO API & WebSocket listening on http://localhost:${PORT}`));
+    server.listen(PORT, () => console.log(`CRAVECART API & WebSocket listening on http://localhost:${PORT}`));
     if (process.env.NODE_ENV !== 'test') {
       import('./jobs.js').then(({ startJobs }) => startJobs());
       import('./seed/ensureLanguages.js')

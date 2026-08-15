@@ -60,7 +60,7 @@ export default function AuthScreen() {
         <Card style={{ padding: 20, gap: 4, alignItems: 'stretch' }}>
           <Image source={require('../../assets/logo.png')} style={{ width: 56, height: 56, borderRadius: 12, alignSelf: 'center', marginBottom: 8 }} />
           <Text style={{ fontFamily: F.b, fontSize: 22, color: C.ink, textAlign: 'center' }}>
-            {mode === 'login' ? 'Rider login' : mode === 'register' ? 'Ride with DapiGO' : 'Reset password'}
+            {mode === 'login' ? 'Rider login' : mode === 'register' ? 'Ride with CraveCart' : 'Reset password'}
           </Text>
           <Muted style={{ textAlign: 'center', marginBottom: 14 }}>
             {mode === 'login' && 'Deliver orders and track your earnings.'}
@@ -131,7 +131,7 @@ export default function AuthScreen() {
             </Text>
           </Text>
           {mode === 'login' && (
-            <Muted style={{ textAlign: 'center', fontSize: 12, marginTop: 8 }}>Demo: rider@dapigo.com / rider123</Muted>
+            <Muted style={{ textAlign: 'center', fontSize: 12, marginTop: 8 }}>Demo: rider@cravecart.com / rider123</Muted>
           )}
         </Card>
       </ScrollView>

@@ -385,7 +385,7 @@ function CommsSettings() {
           </div>
           <div className="field"><label>Username</label><input value={settings.smtpUser || ''} onChange={set('smtpUser')} /></div>
           <div className="field"><label>Password</label><input type="password" value={settings.smtpPass || ''} onChange={set('smtpPass')} /></div>
-          <div className="field"><label>From</label><input value={settings.smtpFrom || ''} onChange={set('smtpFrom')} placeholder="DapiGO <no-reply@dapigo.com>" /></div>
+          <div className="field"><label>From</label><input value={settings.smtpFrom || ''} onChange={set('smtpFrom')} placeholder="CraveCart <no-reply@cravecart.com>" /></div>
         </div>
         <div className="card pad">
           <h3 style={{ marginTop: 0 }}>Push notifications (FCM)</h3>
@@ -669,7 +669,7 @@ function DatabaseBackup() {
       const blob = await res.blob();
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = (res.headers.get('Content-Disposition') || '').match(/filename="([^"]+)"/)?.[1] || 'dapigo-backup.json.gz';
+      a.download = (res.headers.get('Content-Disposition') || '').match(/filename="([^"]+)"/)?.[1] || 'cravecart-backup.json.gz';
       a.click();
       URL.revokeObjectURL(a.href);
     } catch (e) { setErr(e.message); }

@@ -29,7 +29,7 @@ export default function WalletScreen() {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: C.bg }} contentContainerStyle={{ padding: 14, gap: 12, paddingBottom: 32 }} keyboardShouldPersistTaps="handled">
       <Card style={{ padding: 20, alignItems: 'center', gap: 8 }}>
-        <Muted>DAPIGO wallet balance</Muted>
+        <Muted>CRAVECART wallet balance</Muted>
         <Text style={{ fontFamily: F.b, fontSize: 34, color: C.brand }}>{money(data.balance)}</Text>
         <Row style={{ alignSelf: 'stretch' }}>
           <Input keyboardType="numeric" placeholder="Amount" value={amount} onChangeText={setAmount} style={{ flex: 1 }} />

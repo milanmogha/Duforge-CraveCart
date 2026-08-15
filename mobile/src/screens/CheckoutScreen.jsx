@@ -124,7 +124,7 @@ export default function CheckoutScreen({ navigation }) {
               </Bold>
             </RadioRow>
           ))}
-          <Muted style={{ fontSize: 11.5 }}>Card / UPI payments are available on the DapiGO website.</Muted>
+          <Muted style={{ fontSize: 11.5 }}>Card / UPI payments are available on the CraveCart website.</Muted>
           {payment === 'wallet' && user.walletBalance < grand && (
             <ErrorText>Wallet balance is not enough for this order. Top up from your profile.</ErrorText>
           )}
@@ -133,7 +133,7 @@ export default function CheckoutScreen({ navigation }) {
         <Card style={{ padding: 14, gap: 8 }}>
           <Bold style={{ fontSize: 15 }}>🎟️ Promo code</Bold>
           <Row>
-            <Input placeholder="e.g. DAPIGO10" autoCapitalize="characters" value={promo} onChangeText={(t) => setPromo(t.toUpperCase())} style={{ flex: 1 }} />
+            <Input placeholder="e.g. CRAVECART10" autoCapitalize="characters" value={promo} onChangeText={(t) => setPromo(t.toUpperCase())} style={{ flex: 1 }} />
             <Btn sm title="Apply" onPress={applyPromo} disabled={!promo} />
           </Row>
           {applied && <SuccessText>✓ {applied.code} applied — you save {money(applied.discount)}</SuccessText>}

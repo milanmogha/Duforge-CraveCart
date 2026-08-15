@@ -29,7 +29,7 @@ beforeAll(async () => {
     uri = memoryServer.getUri();
   }
 
-  await mongoose.connect(uri, { dbName: `dapigo_test_${process.pid}` });
+  await mongoose.connect(uri, { dbName: `cravecart_test_${process.pid}` });
 }, 120_000);
 
 afterEach(async () => {

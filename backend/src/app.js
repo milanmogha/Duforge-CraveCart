@@ -48,7 +48,7 @@ export function createApp() {
   app.use('/uploads', express.static(UPLOAD_DIR));
 
   app.get('/api/health', (req, res) =>
-    res.json({ status: 'ok', service: 'dapigo-api', time: new Date().toISOString() })
+    res.json({ status: 'ok', service: 'cravecart-api', time: new Date().toISOString() })
   );
 
   app.use('/api/auth', authRoutes);

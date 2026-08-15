@@ -74,7 +74,7 @@ export async function sendEmail(to, subject, html) {
       auth: { user: s.smtpUser, pass: s.smtpPass },
     });
     await transporter.sendMail({
-      from: s.smtpFrom || `DapiGO <${s.smtpUser}>`,
+      from: s.smtpFrom || `CraveCart <${s.smtpUser}>`,
       to, subject, html,
     });
     return { sent: true, dev: false };
@@ -87,7 +87,7 @@ export async function sendEmail(to, subject, html) {
 /** Tiny branded wrapper for transactional mails. */
 export const emailTemplate = (title, bodyHtml) => `
   <div style="font-family:sans-serif;max-width:520px;margin:0 auto;border:1px solid #eee;border-radius:12px;overflow:hidden">
-    <div style="background:#00b3a6;color:#fff;padding:16px 22px;font-size:19px;font-weight:700">DapiGO</div>
+    <div style="background:#00b3a6;color:#fff;padding:16px 22px;font-size:19px;font-weight:700">CraveCart</div>
     <div style="padding:22px">
       <h2 style="margin:0 0 10px;color:#292929">${title}</h2>
       ${bodyHtml}

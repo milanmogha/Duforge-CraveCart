@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} DapiGO. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CraveCart. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span>Made with ❤️ for zero budget.</span>
           </div>

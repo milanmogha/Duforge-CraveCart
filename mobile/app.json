@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "DapiGO",
-    "slug": "dapigo",
+    "name": "CraveCart",
+    "slug": "cravecart",
     "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -9,10 +9,10 @@
     "backgroundColor": "#f7f7f7",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dapigo.customer"
+      "bundleIdentifier": "com.cravecart.customer"
     },
     "android": {
-      "package": "com.dapigo.customer",
+      "package": "com.cravecart.customer",
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#00b3a6"

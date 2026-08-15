@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'dapigo_admin_token';
+const TOKEN_KEY = 'cravecart_admin_token';
 export const PANEL = 'admin';
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);

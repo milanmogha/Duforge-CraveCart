@@ -737,7 +737,7 @@ router.get('/backup', asyncH(async (req, res) => {
 
   const stamp = new Date().toISOString().slice(0, 19).replaceAll(':', '-');
   res.setHeader('Content-Type', 'application/gzip');
-  res.setHeader('Content-Disposition', `attachment; filename="dapigo-backup_${stamp}.json.gz"`);
+  res.setHeader('Content-Disposition', `attachment; filename="cravecart-backup_${stamp}.json.gz"`);
   const gzip = zlib.createGzip();
   gzip.pipe(res);
   const write = (chunk) => new Promise((ok) => (gzip.write(chunk) ? ok() : gzip.once('drain', ok)));
@@ -795,7 +795,7 @@ router.get('/api-keys/:id/token', asyncH(async (req, res) => {
   const key = await ApiKey.findById(req.params.id);
   if (!key) return res.status(404).json({ message: 'API key not found' });
   if (!key.active) return res.status(400).json({ message: 'Key is disabled' });
-  const token = jwt.sign({ iss: 'dapigo' }, key.secret, { expiresIn: '30m' });
+  const token = jwt.sign({ iss: 'cravecart' }, key.secret, { expiresIn: '30m' });
   res.json({ token, expiresIn: 1800 });
 }));
 

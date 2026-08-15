@@ -111,7 +111,7 @@ export default function AuthPage() {
             </CardTitle>
             <CardDescription className="text-sm">
               {mode === 'login' && 'Login to order from your favorite stores.'}
-              {mode === 'register' && 'Join DapiGO in seconds.'}
+              {mode === 'register' && 'Join CraveCart in seconds.'}
               {mode === 'forgot' && (reset.sent ? 'Enter the 6-digit code and your new password.' : "We'll send a reset code to your email.")}
             </CardDescription>
           </CardHeader>
@@ -268,7 +268,7 @@ export default function AuthPage() {
             </p>
             {mode === 'login' && (
               <p className="text-center text-xs text-muted-foreground mt-4 opacity-70">
-                Demo: customer@dapigo.com / customer123
+                Demo: customer@cravecart.com / customer123
               </p>
             )}
           </CardFooter>

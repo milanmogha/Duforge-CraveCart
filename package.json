@@ -1,8 +1,8 @@
 {
-  "name": "dapigo-v2",
+  "name": "cravecart-v2",
   "version": "2.0.0",
   "private": true,
-  "description": "DAPIGO multi-vendor delivery platform — backend + customer/admin/partner/rider apps",
+  "description": "CRAVECART multi-vendor delivery platform — backend + customer/admin/partner/rider apps",
   "scripts": {
     "install:all": "npm --prefix backend install && npm --prefix frontend install && npm --prefix admin install && npm --prefix partner install && npm --prefix rider install && npm --prefix mobile install",
     "seed": "npm --prefix backend run seed",

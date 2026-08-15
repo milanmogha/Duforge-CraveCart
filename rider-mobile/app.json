@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "DapiGO Rider",
-    "slug": "dapigo-rider",
+    "name": "CraveCart Rider",
+    "slug": "cravecart-rider",
     "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -9,13 +9,13 @@
     "backgroundColor": "#f7f7f7",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dapigo.rider",
+      "bundleIdentifier": "com.cravecart.rider",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "DapiGO Rider shares your live location with the customer while you are on an active delivery."
+        "NSLocationWhenInUseUsageDescription": "CraveCart Rider shares your live location with the customer while you are on an active delivery."
       }
     },
     "android": {
-      "package": "com.dapigo.rider",
+      "package": "com.cravecart.rider",
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#00b3a6"
@@ -34,7 +34,7 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "DapiGO Rider shares your live location with the customer while you are on an active delivery."
+          "locationWhenInUsePermission": "CraveCart Rider shares your live location with the customer while you are on an active delivery."
         }
       ]
     ],

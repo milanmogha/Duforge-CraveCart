@@ -1,10 +1,10 @@
-# DAPIGO v2 — Project Guide
+# CRAVECART v2 — Project Guide
 
 Multi-vendor delivery platform (rebuild of dapigo v1) in **React + Express + MongoDB**. The full feature spec lives at `/home/aakash/Projects/dapigo/_analysis/FEATURES_AND_FUNCTIONALITY.md`; the original v1 (eRestro CodeIgniter + Flutter) is at `/home/aakash/Projects/dapigo/` — check its `api-doc.txt` / `partner-api-doc.txt` / `rider-api-doc.txt` for exact v1 behavior when porting features.
 
-## Theme (official DapiGO, from v1 Flutter app)
+## Theme (official CraveCart, from v1 Flutter app)
 
-Primary teal `#00b3a6` (hover `#009288`), success `#33bc88`, ink/sidebar `#292929`, bg `#f7f7f7`, error `#ff4d4d`, warning `#fab44d`. Font **Quicksand** (loaded from Google Fonts in each `index.html`). Logo: `<app>/public/logo.png` (from v1 `Archive/assets/images/png/DapiGoLogo.png`). Brand is written "DapiGO".
+Primary teal `#00b3a6` (hover `#009288`), success `#33bc88`, ink/sidebar `#292929`, bg `#f7f7f7`, error `#ff4d4d`, warning `#fab44d`. Font **Quicksand** (loaded from Google Fonts in each `index.html`). Logo: `<app>/public/logo.png` (from v1 `Archive/assets/images/png/DapiGoLogo.png`). Brand is written "CraveCart".
 
 ## Layout & ports
 
@@ -27,14 +27,14 @@ Primary teal `#00b3a6` (hover `#009288`), success `#33bc88`, ink/sidebar `#29292
 
 ## Critical gotchas
 
-- **Database must be `dapigo_v2`** (`backend/.env`). The old `dapigo` DB has stale unique indexes from v1 that break seeding.
-- Demo accounts: `admin|partner|partner2|rider|customer@dapigo.com`, password `<role>123` (e.g. `admin123`).
+- **Database must be `cravecart_v2`** (`backend/.env`). The old `dapigo` DB has stale unique indexes from v1 that break seeding.
+- Demo accounts: `admin|partner|partner2|rider|customer@cravecart.com`, password `<role>123` (e.g. `admin123`).
 - Panel logins are role-guarded (`panel` field on `/api/auth/login`).
 
 ## Conventions
 
 - **Backend:** routes double as controllers (`backend/src/routes/*.js`), wrapped in `asyncH`; auth via `protect`/`authorize`. Models grouped by domain in `backend/src/models/{User,Catalog,Order,Finance,Misc}.js`. All wallet mutations go through `walletAdjust()` (`utils/helpers.js`); in-app notifications via `notify()`. Order status changes must respect `STATUS_TRANSITIONS` in `models/Order.js`; settlement happens in `settleOrder()` (`routes/orders.js`). Cart pricing is server-authoritative via `priceCart()` (`routes/cart.js`).
-- **Customer storefront (`frontend/`):** Next.js 16 App Router — pages in `src/app/**/page.js`, `src/lib/api.js` (fetch wrapper + `money()`/`dt()` + `BASE`/`API_BASE`/`SOCKET_PATH`), `src/lib/i18n.jsx`, contexts in `src/context/`, Tailwind + Shadcn in `src/components/ui/`. Read `frontend/AGENTS.md` **and the bundled docs in `node_modules/next/dist/docs/`** before writing code — this is Next 16, not the Next in your training data. Live updates via socket.io. Deployed under the `/dapigo` path prefix: `basePath` is set from the `NEXT_PUBLIC_BASE_PATH` build arg (inlined at build time), and every hand-built URL (fetch, socket.io) must go through `API_BASE`/`SOCKET_PATH` or it escapes the prefix. Anything touching `window` at import time (Leaflet) must be loaded via `next/dynamic` with `ssr: false`; `useSearchParams` needs a `<Suspense>` boundary or the build fails.
+- **Customer storefront (`frontend/`):** Next.js 16 App Router — pages in `src/app/**/page.js`, `src/lib/api.js` (fetch wrapper + `money()`/`dt()` + `BASE`/`API_BASE`/`SOCKET_PATH`), `src/lib/i18n.jsx`, contexts in `src/context/`, Tailwind + Shadcn in `src/components/ui/`. Read `frontend/AGENTS.md` **and the bundled docs in `node_modules/next/dist/docs/`** before writing code — this is Next 16, not the Next in your training data. Live updates via socket.io. Deployed under the `/cravecart` path prefix: `basePath` is set from the `NEXT_PUBLIC_BASE_PATH` build arg (inlined at build time), and every hand-built URL (fetch, socket.io) must go through `API_BASE`/`SOCKET_PATH` or it escapes the prefix. Anything touching `window` at import time (Leaflet) must be loaded via `next/dynamic` with `ssr: false`; `useSearchParams` needs a `<Suspense>` boundary or the build fails.
 - **Consoles (`admin/`, `partner/`, `rider/`):** identical Vite skeleton per app — `src/api.js`, `src/ctx.jsx` (auth context), `src/components.jsx`, `src/styles.css`, pages in `src/pages/`, routes + nav in `src/App.jsx`. Plain CSS, no UI/state libraries. Vite proxies `/api` and `/uploads` to :5000. Live updates by 10s polling.
 - New backend feature = model (grouped file) + route module registered in `server.js`. New console page = `pages/X.jsx` + entry in that app's `NAV` array.
 - **Mobile (`mobile/`):** Expo customer app, plain JS mirroring the frontend skeleton — `src/api.js` (token in AsyncStorage; API origin auto-derived from Expo hostUri → `http://<metro-host>:5000`, override with `EXPO_PUBLIC_API_URL`), `src/ctx.jsx` (Auth+Cart contexts), `src/components.jsx` (RN primitives), `src/screens/*`, nav in `App.js` (React Navigation: bottom tabs + stack). Run `npm --prefix mobile run start`, scan QR with Expo Go on the phone (same Wi-Fi as the backend). Payments in-app are COD/wallet only (Stripe/Razorpay SDKs are web-only). Live tracking = Leaflet in a `react-native-webview` (`src/TrackingMap.jsx`) + the same socket.io events as web. New screen = `src/screens/X.jsx` + `Stack.Screen` entry in `App.js`. **`partner-mobile/` and `rider-mobile/`** clone this skeleton (login-gated at the root, tabs only, no cart); they poll every 10s like the web consoles. The rider app pushes GPS via `expo-location` `watchPositionAsync` (throttled ~8s) while a delivery is active, mirroring the console's `navigator.geolocation` flow.

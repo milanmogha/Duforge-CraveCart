@@ -1,7 +1,7 @@
-const TOKEN_KEY = 'dapigo_customer_token';
+const TOKEN_KEY = 'cravecart_customer_token';
 export const PANEL = 'customer';
 
-// Path-based deployment: the storefront is published under /dapigo through the
+// Path-based deployment: the storefront is published under /cravecart through the
 // Tailscale funnel, which strips the prefix before nginx sees it. Every URL the
 // browser is asked to fetch must therefore carry the prefix, or it escapes the
 // mount — this is what `basePath` does for pages/assets, and what BASE does for
