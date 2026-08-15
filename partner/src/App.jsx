@@ -76,7 +76,7 @@ function Shell() {
       <aside className="sidebar">
         <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
           <img src="/logo.png" alt="CraveCart" style={{ width: 34, height: 34, borderRadius: 8 }} />
-          <span>Dapi<em>GO</em> Partner</span>
+          <span>Crave<em>Cart</em> Partner</span>
         </div>
         <nav>
           {NAV.map(([to, icon, label]) => (

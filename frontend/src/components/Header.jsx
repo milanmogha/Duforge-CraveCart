@@ -68,10 +68,10 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105">
           <div className="bg-primary text-primary-foreground p-1.5 rounded-xl">
-            <span className="font-black text-xl tracking-tighter">DG</span>
+            <span className="font-black text-xl tracking-tighter">CC</span>
           </div>
           <span className="font-bold text-xl hidden sm:inline-block">
-            Dapi<span className="text-primary">GO</span>
+            Crave<span className="text-primary">Cart</span>
           </span>
         </Link>
 

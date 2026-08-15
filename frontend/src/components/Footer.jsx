@@ -16,10 +16,10 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="bg-primary text-primary-foreground p-1.5 rounded-xl">
-                <span className="font-black text-xl tracking-tighter">DG</span>
+                <span className="font-black text-xl tracking-tighter">CC</span>
               </div>
               <span className="font-bold text-2xl">
-                Dapi<span className="text-primary">GO</span>
+                Crave<span className="text-primary">Cart</span>
               </span>
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">

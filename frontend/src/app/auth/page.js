@@ -104,7 +104,7 @@ export default function AuthPage() {
         <Card className="border-border/50 shadow-xl bg-card/60 backdrop-blur-xl">
           <CardHeader className="space-y-2 text-center pb-4">
             <div className="mx-auto bg-primary text-primary-foreground p-1.5 rounded-xl w-12 h-12 flex items-center justify-center mb-2">
-              <span className="font-black text-2xl tracking-tighter">DG</span>
+              <span className="font-black text-2xl tracking-tighter">CC</span>
             </div>
             <CardTitle className="text-2xl font-bold tracking-tight">
               {mode === 'login' ? 'Welcome back' : mode === 'register' ? 'Create an account' : 'Reset password'}

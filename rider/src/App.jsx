@@ -93,7 +93,7 @@ function Shell() {
       <aside className="sidebar">
         <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
           <img src="/logo.png" alt="CraveCart" style={{ width: 34, height: 34, borderRadius: 8 }} />
-          <span>Dapi<em>GO</em> Rider</span>
+          <span>Crave<em>Cart</em> Rider</span>
         </div>
         <div style={{ padding: '0 14px' }}><OnlineToggle /></div>
         <nav>
